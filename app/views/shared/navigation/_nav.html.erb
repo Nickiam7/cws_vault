@@ -1,0 +1,123 @@
+<header class="header shadow-sm">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <i
+        class="bi bi-list d-flex d-lg-none order-0"
+        style="color: #ab4b57; font-size: 26px;"
+        role="img"
+        aria-label="Mobile Navigation"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasMainNav"
+        aria-controls="offcanvasMainNav"
+      ></i>
+      <div class="header__brand me-lg-5 order-1 order-lg-0">
+        <%= render(partial: 'shared/logo') %>
+      </div>
+      <div class="d-flex d-lg-none order-2">
+        <i
+          class="bi bi-search me-3"
+          style="color: #ab4b57; font-size: 20px;"
+          role="img"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseSearch"
+          aria-expanded="false"
+          aria-controls="collapseSearch"
+        ></i>
+        <i
+          class="bi bi-cart3"
+          style="color: #ab4b57; font-size: 20px;"
+          role="img"
+          aria-label="Mobile Cart"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasCart"
+          aria-controls="offcanvasCart"
+        ></i>
+      </div>
+      <div class="header__links me-lg-auto d-none d-lg-flex">
+        <ul class="nav me-lg-auto">
+          <li>
+            <%= link_to('Wine', '#', class: 'nav-link px-md-2 px-lg-3 link-dark' ) %>
+          </li>
+          <li>
+            <%= link_to('Olive oil', '#', class: 'nav-link px-md-2 px-lg-3 link-dark' ) %>
+          </li>
+          <li>
+            <%= link_to('Spreads', '#', class: 'nav-link px-md-2 px-lg-3 link-dark' ) %>
+          </li>
+        </ul>
+        <form class="me-lg-auto w-50">
+          <input
+            type="search"
+            class="form-control form-control-lg"
+            placeholder="Search wines, olive oils and spreads"
+            aria-label="Search"
+          >
+        </form>
+      </div>
+      <div class="header__account d-none d-lg-flex align-items-center">
+        <div class="dropdown text-end me-lg-3">
+        <% if account_signed_in? %>
+          <a
+            href="#"
+            class="d-block link-dark text-decoration-none dropdown-toggle"
+            id="dropdownUser1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Account
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end text-small shadow-sm"
+            aria-labelledby="dropdownUser1"
+            style=""
+          >
+            <li>
+              <%= link_to('Account settings', edit_account_registration_path, class: 'dropdown-item') %>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+              >
+                Settings
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+              >
+                Profile
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <%= link_to('Sign out', destroy_account_session_path, method: :delete, class: 'dropdown-item') %>
+            </li>
+          </ul>
+        <% else %>
+          <ul class="nav me-lg-auto">
+            <li>
+              <%= link_to('Sign in', new_account_session_path, class: 'nav-link px-2 link-dark') %>
+            </li>
+            <li>
+              <%= link_to('Sign up', new_account_registration_path, class: 'nav-link px-2 link-dark') %>
+            </li>
+          </ul>
+        <% end %>
+        </div>
+          <i
+            class="bi bi-cart3"
+            style="color: #ab4b57; font-size: 20px; cursor: pointer"
+            role="img"
+            aria-label="Your cart"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasCart"
+            aria-controls="offcanvasCart"
+          ></i>
+      </div>
+    </div>
+  </div>
+</header>

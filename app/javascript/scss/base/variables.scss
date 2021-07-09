@@ -1,1 +1,11 @@
-$body-bg: #fafafa !default;
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
+$font-family-source-pro: 'Source Sans Pro', sans-serif;
+$font-family-sans-serif: $font-family-source-pro;
+
+$body-bg:        #fafafa !default;
+$border-radius:    1px !default;
+$border-radius-lg: 1px !default;
+
+$primary: #ab4b57 !default;
