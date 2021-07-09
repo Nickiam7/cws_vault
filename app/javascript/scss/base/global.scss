@@ -1,0 +1,31 @@
+.logo {
+  display: flex;
+  .logo--nav {
+   width: 50px;
+  }
+  .logo--brand {
+    font-family: $font-family-source-pro;
+    font-size: 3rem;
+    color: #ab4b57;
+    font-weight: 700;
+    margin-left: 5px;
+  }
+}
+a.logo {
+  text-decoration: none;
+}
+.banner {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: linear-gradient(to right,#bc6971 0,#ab4b57 100%);
+  text-align: right;
+  a {
+    margin: 0;
+    color: #ffffff;
+    text-decoration: none;
+    &:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  }
+}

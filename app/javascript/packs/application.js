@@ -12,6 +12,8 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+require.context('../images', true)
+
 import * as bootstrap from 'bootstrap'
 import '../scss/app'
 

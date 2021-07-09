@@ -1,0 +1,23 @@
+<div
+  class="offcanvas offcanvas-end"
+  data-bs-scroll="true"
+  tabindex="-1"
+  id="offcanvasCart"
+  aria-labelledby="offcanvasCart"
+>
+  <div class="offcanvas-header">
+    <h2 class="offcanvas-title" id="offcanvasScrollingLabel">Cart</h2>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body px-0">
+    <% if account_signed_in? %>
+      <div class="px-3">
+        Your cart!!!
+      </div>
+    <% else %>
+      <div class="px-3">
+        Sign in to view your cart!
+      </div>
+    <% end %>
+  </div>
+</div>

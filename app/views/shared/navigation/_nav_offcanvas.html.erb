@@ -1,0 +1,44 @@
+<div
+  class="offcanvas offcanvas-start"
+  data-bs-scroll="true"
+  tabindex="-1"
+  id="offcanvasMainNav"
+  aria-labelledby="offcanvasMainNav"
+>
+  <div class="offcanvas-header">
+    <%= render(partial: 'shared/logo') %>
+    <button
+      type="button"
+      class="btn-close text-reset"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body px-0">
+    <nav class="d-flex flex-column h-100 justify-content-between">
+      <ul>
+        <li>
+          <%= link_to('Wine', '#', class: 'nav-link px-md-2 px-lg-3 link-dark' ) %>
+        </li>
+        <li>
+          <%= link_to('Olive oil', '#', class: 'nav-link px-md-2 px-lg-3 link-dark' ) %>
+        </li>
+        <li>
+          <%= link_to('Spreads', '#', class: 'nav-link px-md-2 px-lg-3 link-dark' ) %>
+        </li>
+      </ul>
+      <ul class="d-flex">
+        <% if account_signed_in? %>
+          <%= current_account.email %>
+        <% else %>
+        <li class="flex-fill text-center">
+          <%= link_to('Sign in', new_account_session_path, class: 'nav-link link-dark') %>
+        </li>
+        <li class="flex-fill text-center" style="border-top: 1px solid #ced4da; border-left: 1px solid #ced4da;">
+          <%= link_to('Sign up', new_account_registration_path, class: 'nav-link link-dark') %>
+        </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</div>

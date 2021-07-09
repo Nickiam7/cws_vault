@@ -1,0 +1,9 @@
+.offcanvas-start {
+  width: 275px;
+}
+.offcanvas-end {
+  width: 275px;
+  @media (min-width: 1200px) {
+    width: 450px;
+  }
+}
