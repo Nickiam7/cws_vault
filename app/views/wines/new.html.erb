@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Add a new wine</h1>
+  <%= form_with(model: @wine) do |f| %>
+  <div class="row">
+    <div class="col-md-8">
+        <div class="my-3">
+          <%= f.label 'Name' %><br>
+          <%= f.text_field :name %>
+        </div>
+        <div class="my-3">
+          <%= f.submit %>
+        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="my-3">
+        <%= f.label 'Image' %>
+        <%= f.file_field :image %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

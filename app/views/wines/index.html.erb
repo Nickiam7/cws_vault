@@ -1,0 +1,21 @@
+<div class="container">
+<%= link_to('add wine', new_wine_path) if current_account.try(:vadmin?) %>
+<h1>wines</h1>
+<div class="row">
+  <div class="col-md-3">
+    filters
+  </div>
+  <div class="col-md-8">
+    <div class="d-flex justify-content-between">
+      <% @wines.each do |wine| %>
+        <div class="wine">
+          <div class="text-center">
+            <%= image_tag(wine.image_url(:large)) %><br>
+            <%= link_to(wine.name, wine_path(wine)) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
