@@ -25,10 +25,25 @@ class WinesController < ApplicationController
     end
   end
 
+  def edit
+    @wine = Wine.find(params[:id])
+  end
+
+  def update
+    @wine = Wine.find(params[:id])
+    if @wine.update(wine_params)
+      flash[:success] = "#{@wine.name} has been updated."
+      redirect_to(wine_path(@wine))
+    else
+      flash[:error] = 'Something went wrong'
+      render(:edit)
+    end
+  end
+
   private
 
   def wine_params
-    params.require(:wine).permit(:name, :price, :quantity, :vintage, :image)
+    params.require(:wine).permit(:name, :price, :quantity, :vintage, :image, :description)
   end
 
   def admin_check
