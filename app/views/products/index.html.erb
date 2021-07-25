@@ -1,0 +1,6 @@
+<div class="container">
+  <h1>All products</h1>
+  <% @products.each do |product| %>
+    <%= product.name %>(<%= product.product_type %>)<br>
+  <% end %>
+</div>

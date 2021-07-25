@@ -1,14 +1,14 @@
 class CheckoutController < ApplicationController
   def create
-    wine = Wine.find(params[:id])
+    product = Product.find(params[:id])
     @session = Stripe::Checkout::Session.create({
       payment_method_types: ['card'],
       line_items: [{
-        name: wine.name,
-        amount: wine.price,
+        name: product.name,
+        amount: product.price,
         currency: 'usd',
         quantity: params[:qty],
-        images: [wine.image.url],
+        images: [product.image.url],
         description: "Picking up at: #{params[:pickup]}",
         adjustable_quantity: {
           enabled: true,
