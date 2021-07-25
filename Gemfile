@@ -15,6 +15,7 @@ gem 'devise', '~> 4.8'
 gem 'fog-aws', '~> 3.10'
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'mini_magick', '~> 4.11'
+gem 'stripe', '~> 5.37'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 

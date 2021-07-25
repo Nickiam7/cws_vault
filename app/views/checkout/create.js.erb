@@ -1,0 +1,6 @@
+const public_key = document.querySelector("meta[name='stripe-key']").getAttribute("content")
+const stripe = Stripe(public_key)
+
+stripe.redirectToCheckout({
+  sessionId: '<%= @session.id %>'
+})
