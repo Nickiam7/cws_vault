@@ -2,18 +2,20 @@
 
 one:
   name: MyString
+  type: 
   description: MyString
   price: 1
   quantity: 1
-  vintage: MyString
   available: false
+  vintage: MyString
   image: MyString
 
 two:
   name: MyString
+  type: 
   description: MyString
   price: 1
   quantity: 1
-  vintage: MyString
   available: false
+  vintage: MyString
   image: MyString

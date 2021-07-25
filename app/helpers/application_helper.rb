@@ -7,4 +7,12 @@ module ApplicationHelper
     when "notice" then "alert alert-success"
     end
   end
+
+  def formatted_amount(amount)
+    number_to_currency amount / 100.0
+  end
+
+  def vadmin?
+    current_account.role == 'vadmin'
+  end
 end
