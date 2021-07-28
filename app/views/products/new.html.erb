@@ -1,5 +1,6 @@
+<main>
 <div class="container">
-  <h1>Add new product</h1>
+<h1>Add new product</h1>
 <%= form_with(model: @product, local: true) do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
@@ -31,12 +32,14 @@
 
       <div class="form-group my-5">
         <%= f.label :product_type %>
-        <%= f.select(:product_type, [['Wine', 'wine'], ['Spread', 'spread'], ['Olive oil', 'olive-oil']]) %>
+        <%= f.select(:product_type, product_types, prompt: 'Select') %>
       </div>
     </div>
     <div class="col">
-      <%= f.label :image %>
-      <%= f.file_field :image %>
+      <div class="form-group">
+        <%= f.label :image %>
+        <%= f.file_field :image, class: 'form-control' %>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -58,3 +61,4 @@
   </div>
 <% end %>
 </div>
+</main>
