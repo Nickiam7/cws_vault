@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    admin_check
     @product = Product.new(product_params)
     if @product.save
       flash[:success] = "#{@product.name} has been created."

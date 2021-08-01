@@ -17,12 +17,20 @@ class CheckoutController < ApplicationController
         },
       }],
       mode: 'payment',
-      success_url: root_url,
-      cancel_url: root_url,
+      success_url: checkout_success_url,
+      cancel_url: checkout_cancel_url,
     })
     respond_to do |format|
       format.js
     end
+  end
+
+  def success
+
+  end
+
+  def cancel
+
   end
 
 end

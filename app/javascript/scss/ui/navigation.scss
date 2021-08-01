@@ -1,7 +1,10 @@
 .header {
-  border-bottom: 1px solid #ced4da;
-  padding: 5px 0;
-  background-color: #ffffff;
+  padding: 0;
+  @media(min-width: 768px) {
+    padding: 5px 0;
+    border-bottom: 1px solid #ced4da;
+    background-color: #ffffff;
+  }
   &__container {
     display: flex;
     justify-content: space-between;
