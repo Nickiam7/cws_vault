@@ -5,7 +5,9 @@
     <%= link_to('New wine', new_product_path) if vadmin? %>
   </div>
   <% @wines.each do |wine|  %>
-    <%= link_to(wine.name, wine_path(wine)) %>
+    <div>
+      <%= link_to(wine.name, wine_path(wine)) %>
+    </div>
   <% end %>
 </div>
 </main>
