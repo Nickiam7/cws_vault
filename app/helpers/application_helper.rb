@@ -13,6 +13,6 @@ module ApplicationHelper
   end
 
   def vadmin?
-    current_account.role == 'vadmin'
+    current_account.role == 'vadmin' if account_signed_in?
   end
 end
