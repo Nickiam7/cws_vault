@@ -26,7 +26,7 @@ class CheckoutController < ApplicationController
   end
 
   def success
-
+    @session
   end
 
   def cancel
