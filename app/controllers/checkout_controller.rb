@@ -1,14 +1,17 @@
 class CheckoutController < ApplicationController
+
+  def customer
+    current_account.stripe_customer_id if account_signed_in?
+  end
+
   def create
     product = Product.find(params[:id])
     @session = Stripe::Checkout::Session.create({
+      customer: customer,
       payment_method_types: ['card'],
       line_items: [{
-        name: product.name,
-        amount: product.price,
-        currency: 'usd',
+        price: product.stripe_price_id,
         quantity: params[:qty],
-        images: [product.image.url],
         description: "Picking up at: #{params[:pickup]}",
         adjustable_quantity: {
           enabled: true,
@@ -17,7 +20,7 @@ class CheckoutController < ApplicationController
         },
       }],
       mode: 'payment',
-      success_url: checkout_success_url,
+      success_url: checkout_success_url + "?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: checkout_cancel_url,
     })
     respond_to do |format|
@@ -26,11 +29,12 @@ class CheckoutController < ApplicationController
   end
 
   def success
-    @session
+    @session = Stripe::Checkout::Session.retrieve(id: params[:session_id], expand: ['line_items'])
+    @product_id = @session.line_items.data.first.price.product
+    @product = Product.find_by(stripe_product_id: @product_id)
   end
 
   def cancel
-
   end
 
 end

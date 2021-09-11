@@ -11,4 +11,5 @@ CarrierWave.configure do |config|
      config.fog_directory  = Rails.application.credentials.development[:aws_bucket]
   end
   config.fog_public        = true
+  config.cache_dir = Rails.root.join 'tmp/uploads'
 end

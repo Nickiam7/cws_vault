@@ -4,7 +4,7 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   storage :fog
 
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{model.class.to_s.underscore}/#{model.product_type}/#{mounted_as}/#{model.id}"
   end
 
   version :large do

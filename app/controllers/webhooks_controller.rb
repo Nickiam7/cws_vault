@@ -24,6 +24,8 @@ class WebhooksController < ApplicationController
       session = event.data.object
       @product = Product.find_by(price: session.amount_total)
       @product.increment!(:quantity)
+    when 'product.created'
+      Stripe::Product.update(@product.stripe_product_id, images: [@product.image.url])
     end
 
     render json: { message: 'success' }

@@ -1,6 +1,11 @@
 <main>
 <div class="container">
-  <h1>BOOOOOYAAAAAAAAAAAHHH!!!</h1>
-  <p>Way to go bitch!!! <%= link_to('Now order some more!!!', wines_path) %></p>
+  <h1>Great, thanks for your order!</h1>
+  <%= @session %>
+  <hr>
+  <%= @product_id %>
+  <%= @product.inspect %>
+
+  <p> <%= link_to('Now go order some more!!!', wines_path) %></p>
 </div>
 </main>
