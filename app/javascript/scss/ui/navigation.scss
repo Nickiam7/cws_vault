@@ -1,9 +1,9 @@
 .header {
   padding: 0;
+  background-color: #ffffff;
   @media(min-width: 768px) {
     padding: 5px 0;
     border-bottom: 1px solid #ced4da;
-    background-color: #ffffff;
   }
   &__container {
     display: flex;

@@ -1,0 +1,94 @@
+<main>
+<div class="container">
+<h1>Edit <%= @product.name %></h1>
+<%= form_with(model: @product, local: true) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :price %>
+        <%= f.number_field :price, class: 'form-control' %>
+      </div>
+
+      <div class="form-group my-5">
+        <%= f.label :product_type %>
+        <%= f.select(:product_type, product_types, prompt: 'Select') %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <% if @product.image.url %>
+              <p>Current image</p>
+              <%= image_tag(@product.image.url, style: 'width: 25%; display: block; margin: auto;') %>
+            <% end %>
+            <div class="d-grid gap-2">
+              <button
+                class="btn btn-primary mt-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#setNewImageCollapse"
+                aria-expanded="false"
+                aria-controls="setNewImageCollapse"
+              >
+                Set new image
+              </button>
+            </div>
+            <div class="collapse" id="setNewImageCollapse">
+              <div class="card card-body">
+                <%= f.label :image %>
+                <%= f.file_field :image, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <% if @product.persisted? %>
+        <div class="float-right">
+          <%= link_to 'Destroy', @product, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% end %>
+
+      <%= f.button(
+        class: 'btn btn-primary',
+        data: {
+            disable_with: spinner("Updating...")
+          }
+      ) %>
+
+      <% if @product.persisted? %>
+        <%= link_to "Cancel", @product, class: "btn btn-link" %>
+      <% else %>
+        <%= link_to "Cancel", products_path, class: "btn btn-link" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+</div>
+</main>

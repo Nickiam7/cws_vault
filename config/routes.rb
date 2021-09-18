@@ -5,9 +5,16 @@ Rails.application.routes.draw do
 
   resources :webhooks, only: [:create]
 
-  resources :products
+  resources :products do
+    member do
+      post :set_stripe_image
+      get :stripe_image
+    end
+  end
   get '/wines', to: 'products#wines'
   get '/wines/:id', to: 'products#show', as: 'wine'
+  get '/wines/:id', to: 'products#edit'
+  get '/wines/:id', to: 'products#update'
 
   get '/checkout/success', to: 'checkout#success'
   get '/checkout/cancel', to: 'checkout#cancel'

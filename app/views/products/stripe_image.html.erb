@@ -1,0 +1,13 @@
+<main>
+<div class="container">
+  <h1>Set <%= @product.name %>'s image in Stripe Dashboard</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <%= image_tag(@product.image.url, style: { width: '100%' }) %>
+    </div>
+    <div class="col-md-6">
+      <%= link_to('Set image', set_stripe_image_product_path(@product), method: :post) %>
+    </div>
+  </div>
+</div>
+</main>
