@@ -11,6 +11,10 @@ Rails.application.routes.draw do
       get :stripe_image
     end
   end
+
+  post "products/add_to_cart/:id", to: "products#add_to_cart", as: "add_to_cart"
+  delete "products/remove_from_cart/:id", to: "products#remove_from_cart", as: "remove_from_cart"
+
   get '/wines', to: 'products#wines'
   get '/wines/:id', to: 'products#show', as: 'wine'
   get '/wines/:id', to: 'products#edit'

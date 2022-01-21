@@ -12,7 +12,13 @@
   <div class="offcanvas-body px-0">
     <% if account_signed_in? %>
       <div class="px-3">
-        Your cart!!!
+        <% @cart.each do |cart_item| %>
+          <div>
+            <%= cart_item.name %>
+            <%= link_to "x", remove_from_cart_path(cart_item), method: :delete %>
+          </div>
+        <% end %>
+        <%= button_to('Go to checkout', checkout_purchase_path, remote: true) %>
       </div>
     <% else %>
       <div class="px-3">

@@ -1,9 +1,4 @@
 class CheckoutController < ApplicationController
-
-  def customer
-    current_account.stripe_customer_id if account_signed_in?
-  end
-
   def create
     product = Product.find(params[:id])
     @session = Stripe::Checkout::Session.create({
@@ -18,7 +13,8 @@ class CheckoutController < ApplicationController
           minimum: 1,
           maximum: 10,
         },
-      }],
+      },
+    ],
       mode: 'payment',
       success_url: checkout_success_url + "?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: checkout_cancel_url,
@@ -35,6 +31,12 @@ class CheckoutController < ApplicationController
   end
 
   def cancel
+  end
+
+  private
+
+  def customer
+    current_account.stripe_customer_id if account_signed_in?
   end
 
 end

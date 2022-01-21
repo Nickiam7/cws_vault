@@ -1,6 +1,3 @@
-#frozen_string_literal: true
-
-# producst - wine, olive oils and spreads
 class ProductsController < ApplicationController
   before_action :authenticate_account!, only: %i[new create edit update destroy]
   before_action :admin_check, only: %i[new create destroy]
@@ -57,6 +54,20 @@ class ProductsController < ApplicationController
   def stripe_image
     @product = Product.find(params[:id])
   end
+
+  def add_to_cart
+    id = params[:id].to_i
+    quantity = params[:qty]
+    session[:cart] << id unless session[:cart].include?(id)
+    redirect_back(fallback_location: product_path(id))
+  end
+
+  def remove_from_cart
+    id = params[:id].to_i
+    session[:cart].delete(id)
+    redirect_back(fallback_location: product_path(id))
+  end
+
 
   private
 
