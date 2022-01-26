@@ -1,0 +1,7 @@
+<p class="callout">Featured</p>
+<h1 class="h2"><%= @featured.name %></h1>
+<p>Only the healthiest, absolutely perfect clusters of Sangiovese are destined for Giodo’s Brunello di Montalcino. The wine’s maturation—a full two and a half years—takes place in 700-litre French oak casks, followed by a further 18 months in the bottle, a period of time that is essential for producing a Giodo Brunello di Montalcino of such elegance, balance, and depth.</p>
+<%= link_to(wine_path(@featured), class: 'link') do %>
+  Learn more&nbsp;
+  <i class="bi bi-arrow-right"></i>
+<% end %>

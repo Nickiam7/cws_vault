@@ -1,36 +1,95 @@
-.logo {
-  display: flex;
-  .logo--nav {
-   width: 50px;
-  }
-  .logo--brand {
-    font-family: $font-family-source-pro;
-    font-size: 3rem;
-    color: #ab4b57;
-    font-weight: 700;
-    margin-left: 5px;
-  }
-}
-a.logo {
-  text-decoration: none;
-}
-.banner {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background: linear-gradient(to right,#bc6971 0,#ab4b57 100%);
-  text-align: right;
-  a {
-    margin: 0;
-    color: #ffffff;
-    text-decoration: none;
-    &:hover {
-      color: #ffffff;
-      text-decoration: underline;
+.vault {
+  h1, .h1 {
+    font-size: $font-size-l;
+    @media(min-width: 768px) {
+      font-size: $font-size-xl;
     }
   }
-}
-
-main {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  h2, .h2 {
+    font-size: $font-size-m;
+    @media(min-width: 768px) {
+      font-size: $font-size-l;
+    }
+  }
+  .callout {
+    color: $primary;
+    font-size: $font-size-s;
+    margin-bottom: 0;
+  }
+  a.link {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      .bi-arrow-right {
+        transform: translateX(0.3em);
+      }
+    }
+    .bi-arrow-right {
+      margin-top: 0.15em;
+      position: absolute;
+      transform: translateX(0);
+      transition: transform 300ms cubic-bezier(0.4, 0.22, 0.28, 1);
+    }
+  }
+  .logo {
+    display: flex;
+    .logo--nav {
+     width: 50px;
+    }
+    .logo--brand {
+      font-family: $font-family-source-pro;
+      font-size: 3rem;
+      color: #ab4b57;
+      font-weight: 700;
+      margin-left: 5px;
+    }
+  }
+  a.logo {
+    text-decoration: none;
+  }
+  .banner {
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    background: linear-gradient(to right,#bc6971 0,#ab4b57 100%);
+    text-align: right;
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+  #vault__container {
+    overflow: hidden;
+    max-width: 1790px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  main {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    &--hero {
+      text-align: center;
+      padding-top: 0;
+      padding-bottom: 0;
+      @media(min-width: 768px) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+    }
+    &--extra-padding {
+      padding-top: 50px;
+      padding-bottom: 50px;
+      @media(min-width: 768px) {
+        padding-top: 150px;
+        padding-bottom: 150px;
+      }
+    }
+  }
 }

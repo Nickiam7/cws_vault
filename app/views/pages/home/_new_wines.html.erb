@@ -1,0 +1,24 @@
+<h2 class="mb-5">New wine</h2>
+<div class="new-wine">
+  <% @recent_wines.each do |wine| %>
+    <article class="new-wine__wine">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h3 class="wine-title"><%= wine.name %></h3>
+          <%= image_tag(wine.image.url, alt: wine.name) %>
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between pe-4">
+          <% if @cart.include?(wine) %>
+            <%= button_to('Remove from cart', remove_from_cart_path(wine), method: :delete, class: 'button') %>
+          <% else %>
+            <%= button_to 'Add to cart', add_to_cart_path(wine), {class: 'button'} %>
+          <% end %>
+          <%= link_to(wine_path(wine), class: 'link') do %>
+            More&nbsp;
+            <i class="bi bi-arrow-right"></i>
+          <% end %>
+        </div>
+      </div>
+    </article>
+  <% end %>
+</div>

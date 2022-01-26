@@ -1,0 +1,25 @@
+.button {
+  display: inline-block;
+  font-weight: 400;
+  background-color: $primary;
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  line-height: 50px;
+	padding: 5px 30px;
+  border-radius: 50px;
+  -webkit-transition: all 300ms ease-in-out;
+	transition: all 300ms ease-in-out;
+  &:hover,
+  &:focus {
+    color: #ffffff;
+    box-shadow:
+    0 2px 2px rgba(0,0,0,.1),
+    0 4px 4px rgba(0,0,0,.1),
+    0 8px 8px rgba(0,0,0,.1),
+    0 16px 16px rgba(0,0,0,.1);
+  }
+  &:focus {
+    box-shadow: inset 0 0 0 0.22rem lighten($primary, 25%);
+  }
+}

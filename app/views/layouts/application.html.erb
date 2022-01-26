@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+<html lang="en-US">
 <html>
   <head>
     <title>CwsShop</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,12 +15,13 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <scr>
   </head>
 
-  <body>
+  <body class="vault">
     <%= render(partial: 'shared/navigation/main') %>
     <%= render(partial: 'shared/flash') %>
-    <%= yield %>
+    <div id="vault__container">
+      <%= yield %>
+    </div>
   </body>
 </html>

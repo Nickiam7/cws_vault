@@ -1,6 +1,9 @@
 .header {
   padding: 0;
   background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
   @media(min-width: 768px) {
     padding: 5px 0;
     border-bottom: 1px solid #ced4da;
@@ -16,6 +19,7 @@
     justify-content: center;
     flex: 1;
     .form-control {
+      border-radius: 50px;
       background-color: #fafafa;
       transition: all .2s ease-in-out;
       font-size: 1rem;

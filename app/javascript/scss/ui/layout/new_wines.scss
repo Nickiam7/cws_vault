@@ -1,0 +1,29 @@
+.new-wine {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  &__wine {
+    .wine-title {
+      font-size: $font-size-s;
+      max-width: 100%;
+      min-height: 55px;
+      text-align: center;
+      @media(min-width: 1399px) {
+        max-width: 225px;
+      }
+    }
+    img {
+      display: block;
+      width: 75px;
+      max-width: 250px;
+      height: auto;
+      margin: auto;
+    }
+    .button {
+      line-height: 2;
+      padding: 5px 15px;
+      border: none;
+      font-size: 1rem;
+    }
+  }
+}
